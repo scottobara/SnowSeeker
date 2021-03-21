@@ -7,13 +7,30 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct ThisListView: View {
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        List(1..<100) { i in
+            NavigationLink(destination: Text("New secondary \(i)")) {
+                Text("Row \(i)")
+                }
+        }
+        .listStyle(SidebarListStyle())
     }
 }
 
+struct ContentView: View {
+    var body: some View {
+        NavigationView {
+            Text("Sidebar")
+            ThisListView()
+                .navigationBarTitle("List")
+            NavigationLink(destination: Text("New secondary")) {
+                    Text("Hello, World!")
+                }
+                .navigationBarTitle("Primary")
+        }
+    }
+}
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
