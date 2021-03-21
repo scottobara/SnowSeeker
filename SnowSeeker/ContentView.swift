@@ -7,30 +7,25 @@
 
 import SwiftUI
 
-struct ThisListView: View {
-    var body: some View {
-        List(1..<100) { i in
-            NavigationLink(destination: Text("New secondary \(i)")) {
-                Text("Row \(i)")
-                }
-        }
-        .listStyle(SidebarListStyle())
-    }
+struct User: Identifiable {
+    var id = "Taylor Swift"
 }
 
 struct ContentView: View {
+    @State private var selectedUser: User? = nil
+    @State private var isShowingAlert = false
+
     var body: some View {
-        NavigationView {
-            Text("Sidebar")
-            ThisListView()
-                .navigationBarTitle("List")
-            NavigationLink(destination: Text("New secondary")) {
-                    Text("Hello, World!")
-                }
-                .navigationBarTitle("Primary")
-        }
+        Text("Hello, World!")
+            .onTapGesture {
+                self.selectedUser = User()
+            }
+            .alert(item: $selectedUser) { user in
+                Alert(title: Text(user.id))
+            }
     }
 }
+
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
