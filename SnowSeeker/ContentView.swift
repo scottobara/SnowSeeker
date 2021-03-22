@@ -6,38 +6,48 @@
 //
 
 import SwiftUI
-import MapKit
 
-struct UserView: View {
+struct ContentView: View {
+    let resorts: [Resort] = Bundle.main.decode("resorts.json")
+    
     var body: some View {
-        Group {
-            Text("Name: Paul")
-            Text("Country: England")
-            Text("Pets: Luna, Arya, and Toby")
+        NavigationView {
+            List(resorts) { resort in
+                NavigationLink(destination: ResortView(resort: resort)) {
+                    Image(resort.country)
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 40, height: 25)
+                        .clipShape(
+                            RoundedRectangle(cornerRadius: 5)
+                        )
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 5)
+                                .stroke(Color.black, lineWidth: 1)
+                        )
+
+                    VStack(alignment: .leading) {
+                        Text(resort.name)
+                            .font(.headline)
+                        Text("\(resort.runs) runs")
+                            .foregroundColor(.secondary)
+                    }
+                }
+            }
+            .navigationBarTitle("Resorts")
+            
+            WelcomeView()
         }
+        //.phoneOnlyStackNavigationView()
     }
 }
 
-struct ContentView: View {
-    @State private var layoutVertically = false
-    @State private var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 51.507222, longitude: -0.1275), span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5))
-
-    var body: some View {
-        VStack {
-            Map(coordinateRegion: $region)
-                .frame(width: 400, height: 300)
-            if layoutVertically {
-                VStack {
-                    UserView()
-                }
-            } else {
-                HStack {
-                    UserView()
-                }
-            }
-        }
-        .onTapGesture {
-            self.layoutVertically.toggle()
+extension View {
+    func phoneOnlyStackNavigationView() -> some View {
+        if UIDevice.current.userInterfaceIdiom == .phone {
+            return AnyView(self.navigationViewStyle(StackNavigationViewStyle()))
+        } else {
+            return AnyView(self)
         }
     }
 }
