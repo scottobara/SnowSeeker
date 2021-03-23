@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		366CCFBE260A0053009251B7 /* Facility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366CCFBD260A0053009251B7 /* Facility.swift */; };
 		3671BB1F260721EC00FD7E52 /* SnowSeekerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3671BB1E260721EC00FD7E52 /* SnowSeekerApp.swift */; };
 		3671BB21260721EC00FD7E52 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3671BB20260721EC00FD7E52 /* ContentView.swift */; };
 		3671BB23260721EC00FD7E52 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3671BB22260721EC00FD7E52 /* Assets.xcassets */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		366CCFBD260A0053009251B7 /* Facility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Facility.swift; sourceTree = "<group>"; };
 		3671BB1B260721EC00FD7E52 /* SnowSeeker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SnowSeeker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3671BB1E260721EC00FD7E52 /* SnowSeekerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnowSeekerApp.swift; sourceTree = "<group>"; };
 		3671BB20260721EC00FD7E52 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 				36763CF12608AC5D008ED802 /* SkiDetailsView.swift */,
 				36763CF42608AC97008ED802 /* ResortDetailsView.swift */,
 				36763CEE2608ABD4008ED802 /* ResortView.swift */,
+				366CCFBD260A0053009251B7 /* Facility.swift */,
 				36763CEB2608AA9F008ED802 /* WelcomeView.swift */,
 				36763CDD2608A88C008ED802 /* Resort.swift */,
 				36763CE42608A92A008ED802 /* Bundle-Decodable.swift */,
@@ -163,6 +166,7 @@
 				36763CEC2608AA9F008ED802 /* WelcomeView.swift in Sources */,
 				36763CF22608AC5D008ED802 /* SkiDetailsView.swift in Sources */,
 				36763CF52608AC97008ED802 /* ResortDetailsView.swift in Sources */,
+				366CCFBE260A0053009251B7 /* Facility.swift in Sources */,
 				3671BB21260721EC00FD7E52 /* ContentView.swift in Sources */,
 				36763CDE2608A88C008ED802 /* Resort.swift in Sources */,
 				36763CEF2608ABD4008ED802 /* ResortView.swift in Sources */,
