@@ -17,9 +17,22 @@ struct ResortView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 0) {
-                Image(decorative: resort.id)
-                    .resizable()
-                    .scaledToFit()
+//                GeometryReader { geometry in
+                    ZStack(alignment: .bottomTrailing) {
+                        Image(decorative: resort.id)
+                            .resizable()
+                            .scaledToFit()
+                        Text("image credit: \(resort.imageCredit)")
+                            .font(.system(size: 10, weight: .light, design: .default))
+                            //.font(.caption)
+                            .fontWeight(.black)
+                            .padding(6)
+                            .foregroundColor(.white)
+                            .background(Color.black.opacity(0.25))
+                            .clipShape(Capsule())
+                            .offset(x: -4, y: -4)
+                    }
+//                }
 
                 Group {
                     HStack {
